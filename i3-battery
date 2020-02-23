@@ -1,0 +1,22 @@
+#!/bin/bash
+
+battery=$(acpi -b | grep "Battery 1" | awk '{print $3 $4 $5}' | sed 's/,/ /g')
+status=$(echo "$battery" | awk '{print $1}')
+level=$(echo "$battery" | awk '{print $2}')
+level=${level::-1}
+time=" ($(echo "$battery" | awk '{print $3}' | cut -c 1-5))"
+
+symbol="?"
+[ "$status" == "Discharging" ] && symbol="▼"
+[ "$status" == "Discharging" ] && [ "$level" -lt "10" ] && symbol="❗"
+[ "$status" == "Charging" ] && symbol="▲"
+[ "$status" == "Full" ] && symbol="★"
+
+[ "$level" -eq "100" ] && [ $status != "Discharging" ] && time=""
+[ "$symbol" == "?" ] && time=""
+
+color="#$I3C_GREEN"
+[ "$level" -lt "50" ] && color="#$I3C_YELLOW"
+[ "$level" -lt "20" ] && color="#$I3C_RED"
+
+printf "<span color='%s'>%s %s%%%s</span>\n" "$color" "$symbol" "$level" "$time"

@@ -1,0 +1,18 @@
+#!/bin/python
+
+import sys
+
+from math import *
+from random import *
+
+import cmath
+import numpy
+
+try:
+	print(eval(" ".join(sys.argv[1:])))
+except ZeroDivisionError as e:
+	print("Error: can't divide by zero")
+except (TypeError, NameError) as e:
+	print("Error:", str(e))
+except Exception as e:
+	print(type(e).__name__ + ":", str(e))
