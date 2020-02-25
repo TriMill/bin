@@ -22,5 +22,5 @@ color_swp="#$I3C_GREEN"
 (greater "$used_swp" "4") && color_swp="#$I3C_YELLOW"
 (greater "$used_swp" "6") && color_swp="#$I3C_RED"
 
-printf "<span color='%s'>%s</span>/<span color='%s'>%sGiB</span> ⟷ <span color='%s'>%s</span>/<span color='%s'>%sGiB</span>\n" "$color" "$used" "#$I3C_BLUE" "$total" "$color_swp" "$used_swp" "#$I3C_BLUE" "$total_swp"
+printf "<span color='%s'>%s</span>/<span color='%s'>%sGiB</span> \\uF301 <span color='%s'>%s</span>/<span color='%s'>%sGiB</span>\n" "$color" "$used" "#$I3C_BLUE" "$total" "$color_swp" "$used_swp" "#$I3C_BLUE" "$total_swp"
 

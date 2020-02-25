@@ -1,0 +1,10 @@
+#!/bin/bash
+
+wget -q --spider "https://google.com"
+
+if [ "$?" -eq "1" ]; then
+	printf "<span color='#$I3C_RED'>\\uF22A No Internet</span>\n"
+else
+	ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+	printf "<span color='#$I3C_GREEN'>\\uF33D</span> %s\n" "$ip"
+fi
