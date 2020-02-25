@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Modified from Luke Smith's program (https://github.com/LukeSmithxyz/voidrice)
+
 mountable=$(lsblk -lp | grep 'part $' | awk '{print $1, "(" $4 ")"}')
 [[ "$mountable" = "" ]] && exit 1
 chosen=$(echo "$mountable" | dmenu -i -p "Mount which drive?" | awk '{print $1}')
