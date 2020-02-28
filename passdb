@@ -55,7 +55,7 @@ elif [ "$1" == "-a" ] || [ "$1" == "--add" ]; then
 	fi
 
 	# Prompt user to enter their password
-	read -sp "Enter password to save for '$2': " PASS
+	read -rsp "Enter password to save for '$2': " PASS
 	echo ""
 	
 	# Encrypt the password and save it to file
@@ -77,7 +77,7 @@ elif [ "$1" == "-d" ] || [ "$1" == "--delete" ]; then
 
 	echo "Are you sure you want to delete the password for '$1'?"
 	echo "THIS CANNOT BE UNDONE"
-	read -p "Retype the filename to delete this password: " CONFIRM
+	read -rp "Retype the filename to delete this password: " CONFIRM
 
 	if [ "$CONFIRM" == "$2" ]; then
 		rm "$PASS_DIR/$2.aes"

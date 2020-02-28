@@ -12,7 +12,7 @@ symbol="?"
 [ "$status" == "Charging" ] && symbol=$(printf "\\uF20D")
 [ "$status" == "Full" ] && symbol=$(printf "\\uF2E0")
 
-[ "$level" -eq "100" ] && [ $status != "Discharging" ] && time=""
+[ "$level" -eq "100" ] && [ "$status" != "Discharging" ] && time=""
 [ "$symbol" == "?" ] && time=""
 
 color="#$I3C_GREEN"

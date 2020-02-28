@@ -15,7 +15,7 @@ elif [[ "$1" == "-r" ]]; then
 	nl -b a "$HOME/.todo"
 	eval printf %.0s- '{1..'"${COLUMNS:-$(tput cols)}"\}; echo
 	read -rp "Type a number to remove: " number
-	sed -i ${number}d "$HOME/.todo" "$HOME/.todo"
+	sed -i "${number}d" "$HOME/.todo" "$HOME/.todo"
 else
 	printf "%s\n" "$*" >> "$HOME/.todo"
 fi
