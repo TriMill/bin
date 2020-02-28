@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sel="$(dmenu -i -l 20 -fn "Inconsolata,Cousine,Consolas,DejaVuSansMono" < "$HOME/.local/bin/unicode_list" )"
+
+if [ "$sel" != "" ]; then
+	char="$(echo "$sel" |  sed -r 's/[0-9A-Fa-f]+    |    .+//g')"
+	code="$(echo "$sel" | awk '{print $1}')"
+	echo -n "$char" | xsel -bi
+	echo -n "$code" | xsel -pi
+	notify-send "$char copied to clipboard"
+	notify-send "$code copied to primary"
+fi
