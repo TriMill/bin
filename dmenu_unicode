@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sel="$(dmenu -i -l 20 -fn "Inconsolata,Cousine,Consolas,DejaVuSansMono" < "$HOME/.local/bin/unicode_list" )"
+sel="$(dmenu -i -l 20 -fn "Inconsolata,DejaVuSansMono" < "$HOME/.local/bin/unicode_list" )"
 
 if [ "$sel" != "" ]; then
 	char="$(echo "$sel" |  sed -r 's/[0-9A-Fa-f]+    |    .+//g')"

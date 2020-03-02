@@ -1,0 +1,12 @@
+#!/bin/bash
+
+text="$($@)"
+
+tput clear
+tput civis
+printf "%s\n" "$text"
+tput civis
+
+while :; do
+	sleep 1s
+done
